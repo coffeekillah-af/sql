@@ -24,7 +24,7 @@ All the other rows will remain the same. */
 --QUERY 1
 
 SELECT 
-product_name || ', ' || coalesce(product_size, ' ')|| ' (' || coalesce(product_qty_type,'unit') || ')'
+product_name || ', ' || coalesce(product_size, '')|| ' (' || coalesce(product_qty_type,'unit') || ')'
 FROM product
 
 
@@ -214,7 +214,8 @@ HINT: If you don't specify a WHERE clause, you are going to have a bad time.*/
 --QUERY 11
 
 DELETE FROM product_units
-WHERE product_id = 8 AND snapshot_timestamp = '2026-11-27 05:57:49';
+WHERE product_id = 8 
+AND ROWID = (SELECT MIN(ROWID) FROM product_units WHERE product_id = 8);
 
 
 
