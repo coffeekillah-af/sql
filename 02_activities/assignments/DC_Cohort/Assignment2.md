@@ -59,6 +59,9 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 ```
 Your answer...
 ```
+Overwriting is Type 1. A possible way to do this is to have a customer_addr table with the columns addr_id, cust_id, cust_addr_street, cust_addr_city, cust_addr_prov, cust_addr_post. Note that I shortened the names so that it's consistent with the ERD #1 and #2 diagrams. If the customer moves addresses, the old address is replaced in the same row.
+
+Keeping the history is Type 2. If we want to retain history, we can add in a 'stamp' to identify that instance of the address (e.g. "123 Main St"). In this design, the customer_addr table would have the same columns as described in Type 1 plus this additional 'stamp' column. This column could help allow the history of the addresses to be saved. That is, every time the customer changes address, we enter a new entry. This column might be called addr_history. So for example, the customer may have an entry "123 Main St" and for this entry the addr_history is "1" and when they change addresses, their new address "456 Umbrella St." would have the entry addr_history "2". We can find the current address by looking at the addr_history column and pulling the row (address info) where addr_history has the highest value, for a particular cust_id.
 
 ***
 
