@@ -59,6 +59,9 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 ```
 Your answer...
 ```
+Overwriting is Type 1. A possible way to do this is to have a customer_addr table with the columns addr_id, cust_id, cust_addr_street, cust_addr_city, cust_addr_prov, cust_addr_post. Note that I shortened the names so that it's consistent with the ERD #1 and #2 diagrams. If the customer moves addresses, the old address is replaced in the same row.
+
+Keeping the history is Type 2. If we want to retain history, we can add in a 'stamp' to identify that instance of the address (e.g. "123 Main St"). In this design, the customer_addr table would have the same columns as described in Type 1 plus this additional 'stamp' column. This column could help allow the history of the addresses to be saved. That is, every time the customer changes address, we enter a new entry. This column might be called addr_history. So for example, the customer may have an entry "123 Main St" and for this entry the addr_history is "1" and when they change addresses, their new address "456 Umbrella St." would have the entry addr_history "2". We can find the current address by looking at the addr_history column and pulling the row (address info) where addr_history has the highest value, for a particular cust_id.
 
 ***
 
@@ -189,9 +192,12 @@ Read: Boykis, V. (2019, October 16). _Neural nets are just people all the way do
 
 **What are some of the ethical issues important to this story?**
 
-Consider, for example, concepts of labour, bias, LLM proliferation, moderating content, intersection of technology and society, ect. 
 
 
 ```
 Your thoughts...
 ```
+
+Consider, for example, concepts of labour, bias, LLM proliferation, moderating content, intersection of technology and society, ect. 
+The article focuses on the humans that power the so-called machines. Artificial intelligence algorithms actually have to be trained by humans. This by itself isn't an issue per se, but the exploitative nature in which it is done is problematic. AI algorithms are trained by humans (e.g. for image labeling, solving math problems, translating languages, etc.) that are paid via gig platforms for very low wages. The article refers to platforms like MTurk but in 2026, there are also platforms like DataAnnotation and many more. The demand for AI is so big, but this is only accessible due to the exploitative nature of human labour. This is likened to fast fashion: you want to buy that shirt for cheap from Shein? Guess what? A person working for $1 a day or less in another country hand-sewed that shirt - in fact that person might even be a child. Why do workers accept harsh working conditions and low pay? This is the very crux of the inequalities of humans. 
+The fact that LLMs are trained by humans also introduces another problem: human bias. The algorithms are also trained with human bias (likely unknowingly by the humans, but they only know what they know). Thus, if the person who is training the algorithm is racist, the algorithm will also learn to be racist. In fact, with the rise of organizations using AI to scan through resumes and aid in making hiring decisions, there have been emerging studies suggesting that, without human intervention, racism in the recruitment and selection process is proliferated.
