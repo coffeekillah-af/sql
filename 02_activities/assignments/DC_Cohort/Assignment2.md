@@ -192,9 +192,12 @@ Read: Boykis, V. (2019, October 16). _Neural nets are just people all the way do
 
 **What are some of the ethical issues important to this story?**
 
-Consider, for example, concepts of labour, bias, LLM proliferation, moderating content, intersection of technology and society, ect. 
 
 
 ```
 Your thoughts...
 ```
+
+Consider, for example, concepts of labour, bias, LLM proliferation, moderating content, intersection of technology and society, ect. 
+The article focuses on the humans that power the so-called machines. Artificial intelligence algorithms actually have to be trained by humans. This by itself isn't an issue per se, but the exploitative nature in which it is done is problematic. AI algorithms are trained by humans (e.g. for image labeling, solving math problems, translating languages, etc.) that are paid via gig platforms for very low wages. The article refers to platforms like MTurk but in 2026, there are also platforms like DataAnnotation and many more. The demand for AI is so big, but this is only accessible due to the exploitative nature of human labour. This is likened to fast fashion: you want to buy that shirt for cheap from Shein? Guess what? A person working for $1 a day or less in another country hand-sewed that shirt - in fact that person might even be a child. Why do workers accept harsh working conditions and low pay? This is the very crux of the inequalities of humans. 
+The fact that LLMs are trained by humans also introduces another problem: human bias. The algorithms are also trained with human bias (likely unknowingly by the humans, but they only know what they know). Thus, if the person who is training the algorithm is racist, the algorithm will also learn to be racist. In fact, with the rise of organizations using AI to scan through resumes and aid in making hiring decisions, there have been emerging studies suggesting that, without human intervention, racism in the recruitment and selection process is proliferated.
